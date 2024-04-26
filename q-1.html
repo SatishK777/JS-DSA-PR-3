@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse - Linked List</title>
+</head>
+    1. FIND THE MIDDLE OF THE LIST...
+<body>
+    <script>
+        class LinkedList {
+            constructor(data) {
+                this.head = {
+                    data: data,
+                    next: null
+                };
+                this.tail = this.head;
+                this.size = 1;
+            }
+
+            add(data) {
+                let newNode = {
+                    data: data,
+                    next: null
+                };
+
+                if (this.head == null) {
+                    this.head = newNode;
+                }
+
+                let current = this.head;
+                while (current.next != null) {
+                    current = current.next;
+                }
+                current.next = newNode;
+
+                this.size++;
+            }
+
+            viewList() {
+                let current = this.head;
+                let middle = Math.ceil(this.size / 2);
+
+                let index = 1;
+                while (current) {
+                    console.log(current.data);
+
+                    if (index == middle) {
+                        console.log("Middle : ", current);
+                    }
+
+                    current = current.next;
+                    index++;
+                }
+            }
+
+        }
+
+        let list = new LinkedList(100);
+        list.add(200);
+        list.add(300);
+        list.add(400);
+        list.add(500);
+
+        list.viewList();
+        console.log(list);
+    </script>
+</body>
+
+</html
